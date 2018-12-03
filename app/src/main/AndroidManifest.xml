@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.hbxunluo.installapkservice">
+  <!--android:sharedUserId="android.uid.system"-->
+  <!--android:sharedUserId="android.uid.system"-->
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+  <uses-permission
+    android:name="android.permission.STATUS_BAR"
+    tools:ignore="ProtectedPermissions" />
+  <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+  <!--禁用statusBar-->
+  <uses-permission android:name="android.permission.DISABLE_STATUS_BAR" />
+  <!--显示在其他所有程序的顶层-->
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+  <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+  <application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+    <activity android:name="com.hbxunluo.installapk.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+
+    <!--<service android:name="com.hbxunluo.installapk.InstallApkSlientlyService"-->
+    <!--/>-->
+    <activity
+      android:name="com.hbxunluo.installapk.InstallWaittingActivity"
+      android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" /><!-- 定义成浏览器类型，有URL需要处理时会过滤 -->
+        <data android:scheme="installapk" />
+      </intent-filter>
+    </activity>
+    <!--<receiver android:name="com.hbxunluo.installapk.SDStatusReceiver">-->
+    <!--<intent-filter >-->
+    <!--<action android:name="android.intent.action.MEDIA_MOUNTED"/>-->
+    <!--<action android:name="android.intent.action.MEDIA_REMOVED"/>-->
+    <!--<action android:name="android.intent.action.MEDIA_UNMOUNTED"/>-->
+    <!--<data android:scheme="file"/>-->
+    <!--</intent-filter>-->
+    <!--</receiver>-->
+
+
+    <!--&lt;!&ndash;处理系统命令的广播&ndash;&gt;-->
+    <!--<receiver android:name="com.hbxunluo.installapkservice.">-->
+    <!--<intent-filter>-->
+    <!--<action android:name="com.hbxunluo.com" />-->
+    <!--</intent-filter>-->
+    <!--</receiver>-->
+
+    <!--<receiver-->
+    <!--android:name="com.hbxunluo.installapk.widegt.BootReceiver"-->
+    <!--android:enabled="true"-->
+    <!--android:exported="true">-->
+    <!--<intent-filter android:priority="2147483647">  &lt;!&ndash; 系统启动完成后会调用&ndash;&gt;-->
+    <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+    <!--<action android:name="android.media.AUDIO_BECOMING_NOISY" />-->
+    <!--<category android:name="android.intent.category.HOME" />-->
+    <!--</intent-filter>-->
+    <!--<intent-filter android:priority="2147483647" >-->
+    <!--<action android:name="android.intent.action.MEDIA_MOUNTED" />-->
+    <!--<action android:name="android.intent.action.MEDIA_EJECT" />-->
+    <!--<data android:scheme="file" />-->
+    <!--</intent-filter>-->
+    <!--</receiver>-->
+  </application>
+
+
+</manifest>

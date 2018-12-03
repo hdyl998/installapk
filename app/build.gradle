@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+
+    signingConfigs {
+      install {
+        keyAlias 'installapk'
+        keyPassword 'hbxunluo'
+        storeFile file('./installapk.jks')
+        storePassword 'hbxunluo'
+      }
+    }
+    defaultConfig {
+        applicationId "com.hbxunluo.installapk"
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+//        signingConfig signingConfigs.install
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//          signingConfig signingConfigs.install
+        }
+        debug{
+//          signingConfig signingConfigs.install
+      }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+}

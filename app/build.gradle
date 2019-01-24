@@ -23,16 +23,17 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//          signingConfig signingConfigs.install
+          signingConfig signingConfigs.install
         }
         debug{
-//          signingConfig signingConfigs.install
+          signingConfig signingConfigs.install
       }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
+    implementation files('libs/_fastjson-1.2.29.jar')
 }

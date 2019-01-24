@@ -46,6 +46,22 @@
         <data android:scheme="installapk" />
       </intent-filter>
     </activity>
+
+
+
+    <activity
+        android:name="com.hbxunluo.installapk.WaittingActivity"
+        android:launchMode="singleTask"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" /><!-- 定义成浏览器类型，有URL需要处理时会过滤 -->
+        <data android:scheme="installapkwaiting" />
+      </intent-filter>
+    </activity>
+
     <!--<receiver android:name="com.hbxunluo.installapk.SDStatusReceiver">-->
     <!--<intent-filter >-->
     <!--<action android:name="android.intent.action.MEDIA_MOUNTED"/>-->

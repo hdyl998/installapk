@@ -7,5 +7,5 @@ package com.hbxunluo.installapk;
  */
 public class AppConfig {
 
-  public final static boolean isDebug=true;
+  public final static boolean isDebug=false;
 }

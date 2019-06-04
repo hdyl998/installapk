@@ -70,7 +70,8 @@ public class UpdateUtils {
       process = Runtime.getRuntime().exec("su");
       PrintWriter = new PrintWriter(process.getOutputStream());
       PrintWriter.println("chmod 777 " + apkPath);
-      PrintWriter.println("export LD_LIBRARY_PATH=/vendor/lib:/system/lib");
+//      PrintWriter.println("export LD_LIBRARY_PATH=/vendor/lib:/system/lib");
+      PrintWriter.println("LD_LIBRARY_PATH=/vendor/lib:/system/lib ");
       PrintWriter.println("pm install -r " + apkPath);
       //PrintWriter.println("exit");
       PrintWriter.flush();
@@ -79,11 +80,11 @@ public class UpdateUtils {
 
 
       BufferedReader errorStream = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-      String msg = "";
+      StringBuilder msg = new StringBuilder();
       String line;
       // 读取命令的执行结果
       while ((line = errorStream.readLine()) != null) {
-        msg += line;
+        msg.append(line);
       }
       MyLogUitls.print("TAG", "install msg is " + msg);
 
